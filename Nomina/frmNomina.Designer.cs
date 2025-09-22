@@ -1,6 +1,6 @@
 ﻿namespace Nomina
 {
-    partial class Form1
+    partial class frmNomina
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -34,18 +34,24 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvInformacion = new System.Windows.Forms.DataGridView();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.ofdExcel = new System.Windows.Forms.OpenFileDialog();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tmrReloj = new System.Windows.Forms.Timer(this.components);
+            this.RegHRValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OTHrsValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DHrsValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ttsHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ofdExcel = new System.Windows.Forms.OpenFileDialog();
+            this.tmrReloj = new System.Windows.Forms.Timer(this.components);
             this.menuPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -61,10 +67,11 @@
             this.menuPrincipal.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.operacionesToolStripMenuItem});
+            this.operacionesToolStripMenuItem,
+            this.ajustesToolStripMenuItem});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Size = new System.Drawing.Size(1170, 33);
+            this.menuPrincipal.Size = new System.Drawing.Size(1214, 36);
             this.menuPrincipal.TabIndex = 0;
             this.menuPrincipal.Text = "menuStrip1";
             // 
@@ -79,7 +86,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(147, 34);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -94,14 +101,21 @@
             // importarExcelToolStripMenuItem
             // 
             this.importarExcelToolStripMenuItem.Name = "importarExcelToolStripMenuItem";
-            this.importarExcelToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.importarExcelToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
             this.importarExcelToolStripMenuItem.Text = "Importar Excel";
             this.importarExcelToolStripMenuItem.Click += new System.EventHandler(this.importarExcelToolStripMenuItem_Click);
+            // 
+            // ajustesToolStripMenuItem
+            // 
+            this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
+            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
+            this.ajustesToolStripMenuItem.Text = "Ajustes";
+            this.ajustesToolStripMenuItem.Click += new System.EventHandler(this.ajustesToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 33);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 36);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -111,9 +125,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnCalcular);
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
-            this.splitContainer1.Size = new System.Drawing.Size(1170, 533);
-            this.splitContainer1.SplitterDistance = 387;
+            this.splitContainer1.Size = new System.Drawing.Size(1214, 530);
+            this.splitContainer1.SplitterDistance = 384;
             this.splitContainer1.TabIndex = 1;
             // 
             // dgvInformacion
@@ -127,30 +142,20 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.RegHRValor,
+            this.OTHrsValor,
+            this.DHrsValor,
+            this.ValorTotal});
             this.dgvInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInformacion.Location = new System.Drawing.Point(0, 0);
             this.dgvInformacion.Name = "dgvInformacion";
             this.dgvInformacion.ReadOnly = true;
             this.dgvInformacion.RowHeadersWidth = 62;
             this.dgvInformacion.RowTemplate.Height = 28;
-            this.dgvInformacion.Size = new System.Drawing.Size(1170, 387);
+            this.dgvInformacion.Size = new System.Drawing.Size(1214, 384);
             this.dgvInformacion.TabIndex = 2;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ttsHora});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 120);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1170, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // ofdExcel
-            // 
-            this.ofdExcel.Filter = "Archivo de Excel|*.xlsx";
+            this.dgvInformacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInformacion_CellContentClick);
             // 
             // Column1
             // 
@@ -200,26 +205,83 @@
             this.Column6.ReadOnly = true;
             this.Column6.Width = 50;
             // 
-            // tmrReloj
+            // RegHRValor
             // 
-            this.tmrReloj.Enabled = true;
-            this.tmrReloj.Interval = 1000;
-            this.tmrReloj.Tick += new System.EventHandler(this.tmrReloj_Tick);
+            this.RegHRValor.HeaderText = "RegTotal";
+            this.RegHRValor.MinimumWidth = 8;
+            this.RegHRValor.Name = "RegHRValor";
+            this.RegHRValor.ReadOnly = true;
+            this.RegHRValor.Width = 50;
+            // 
+            // OTHrsValor
+            // 
+            this.OTHrsValor.HeaderText = "OTTotal";
+            this.OTHrsValor.MinimumWidth = 8;
+            this.OTHrsValor.Name = "OTHrsValor";
+            this.OTHrsValor.ReadOnly = true;
+            this.OTHrsValor.Width = 50;
+            // 
+            // DHrsValor
+            // 
+            this.DHrsValor.HeaderText = "DTotal";
+            this.DHrsValor.MinimumWidth = 8;
+            this.DHrsValor.Name = "DHrsValor";
+            this.DHrsValor.ReadOnly = true;
+            this.DHrsValor.Width = 50;
+            // 
+            // ValorTotal
+            // 
+            this.ValorTotal.HeaderText = "Total";
+            this.ValorTotal.MinimumWidth = 8;
+            this.ValorTotal.Name = "ValorTotal";
+            this.ValorTotal.ReadOnly = true;
+            this.ValorTotal.Width = 70;
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Location = new System.Drawing.Point(819, 25);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(141, 69);
+            this.btnCalcular.TabIndex = 1;
+            this.btnCalcular.Text = "Calcular tablas";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ttsHora});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 120);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1214, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // ttsHora
             // 
             this.ttsHora.Name = "ttsHora";
             this.ttsHora.Size = new System.Drawing.Size(0, 15);
             // 
-            // Form1
+            // ofdExcel
+            // 
+            this.ofdExcel.Filter = "Archivo de Excel|*.xlsx";
+            // 
+            // tmrReloj
+            // 
+            this.tmrReloj.Enabled = true;
+            this.tmrReloj.Interval = 1000;
+            this.tmrReloj.Tick += new System.EventHandler(this.tmrReloj_Tick);
+            // 
+            // frmNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 566);
+            this.ClientSize = new System.Drawing.Size(1214, 566);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuPrincipal);
             this.MainMenuStrip = this.menuPrincipal;
-            this.Name = "Form1";
+            this.Name = "frmNomina";
             this.Text = "Procesamiento de Nomina";
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
@@ -247,14 +309,20 @@
         private System.Windows.Forms.DataGridView dgvInformacion;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.OpenFileDialog ofdExcel;
+        private System.Windows.Forms.ToolStripStatusLabel ttsHora;
+        private System.Windows.Forms.Timer tmrReloj;
+        private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.ToolStripStatusLabel ttsHora;
-        private System.Windows.Forms.Timer tmrReloj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegHRValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OTHrsValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DHrsValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
+        private System.Windows.Forms.Button btnCalcular;
     }
 }
 
